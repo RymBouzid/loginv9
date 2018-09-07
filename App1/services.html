@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Do+Hyeon|Marvel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Marvel" rel="stylesheet">
+    <link href="pagejquery.css" rel="stylesheet">
+    <link href="fichier1.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script jquery-3.3.1.min.js></script>
+</head>
+
+
+<script>  $(document).ready(function () {
+
+
+        $.getJSON('http://localhost/app1/conversiondbversversjosn.php', function (data) {
+
+
+
+
+            /*for (var i = 0; i < data_length; i++) {
+                var data_length = data.length;
+                data.data.forEach(d => {
+                    $('#div1').append(d[i]["label"] + '<br>');
+              
+            });
+            }*/
+
+
+
+            data.data.forEach(d => {
+
+
+                $('#div1').append("<div class='row my-4 row1'>" + "<div class='col-lg-8'>" + "<img src='" + " http://" + d.imagePath + "'/>" + "</div>" + "<div class='col-lg-4'>" + '<h1>' + d.label + '</h1>' + '<p>' + d.description + '</p>' + "</div>");
+                // $('#div1').append( "<div class='row my-4'>" + "<div class='col-lg-4'>" + '<h1>' + d.label + '</h1>' + '<p>' + d.description + '</p>' + "</div>" + "</div>");
+                //$('#div1').append("<div class='row' id='r1'>")
+                $(d.services).each(function (index, s) {
+                    //s = JSON.parse(s)
+                    $('#div1').append("<div class='col-md-4 blo'>" + "<div class='card'>" + "<div class='card-body'>" + "<h2 class='card-title'>" + s.label_service + "</h2>" + "<p class='card-text text1'>" + s.description_service + "</p>" + "</div>" + "</div>" + "</div>");
+                    // $('#div1').append("<div class='row'>" + "<div class='col-md-4 mb-4'>" + "<div class='card h-100'>" + "<div class='card-body'>" + "<h2 class='card-title'>"+"</h2>" + "<p class='card-text'>"+"</p>"+ s.description_service + "</div>");
+
+
+                    // $('#div2').append("<div class='col-md-2'>" + s.description_service + '<br>');
+
+                });
+                $('#div1').append("</div>")
+            });
+
+
+        });
+
+    });
+
+
+
+
+</script>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger , taille" href="#top">
+                <img src="Res-01 - Home/images/logo_slider_home@1x.png" alt="image logo">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#section1">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="services.html">OUR SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">OFFER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">MY ACCOUNT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">PRO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">PL</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container" id="div1">
+
+        <div class="row" id="div2">
+
+            <!-- /.col-md-4 -->
+
+        </div>
+
+    </div>
+</body>
+
+</html>
